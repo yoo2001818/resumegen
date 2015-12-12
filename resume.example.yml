@@ -1,0 +1,86 @@
+---
+version: '0.1.0'
+date: 'Sat, 12 Dec 2015 07:44:48 GMT'
+vcard:
+  name: 'John Doe'
+  nickname: 'Test'
+  contact:
+    location: 'Somewhere, Pacific Ocean'
+    phone: '+82 10-1234-5678'
+    email: 'test@example.com'
+    website: 'http://example.com/'
+    network:
+      - provider: 'Github'
+        username: 'test'
+        url: 'https://github.com/404'
+summary: |
+  This is a summary.
+  Multiline is possible!
+skills:
+  language:
+    - name: 'JavaScript'
+      duration: '1995'
+      level: 'primary'
+      dialect:
+        - name: 'CoffeeScript'
+          duration:
+            from: '2009'
+            to: '2015'
+          level: 'high'
+    - name: 'Java'
+      duration: '1995'
+      level: 'high'
+    - name: 'Python'
+      duration: '1991'
+      level: 'medium'
+    - name: 'Lua'
+      duration: '1993'
+      level: 'beginner'
+  program:
+    - 'Chrome'
+    - 'Firefox'
+    - 'Windows'
+interest:
+  - 'Games'
+  - 'Something'
+  - 'TV'
+  - 'Algorithm'
+education:
+  - name: 'Naksung National University'
+    duration:
+      from: '2000'
+      to: '2004'
+    degree:
+      - 'B.A. in Computer Science'
+    location: 'Seoul, South Korea'
+work:
+  - name: 'A company'
+    duration:
+      from: '2010'
+      to: '2014'
+    position: 'Full-stack web developer'
+    location: 'Somewhere'
+project:
+  - name: 'Hello, world'
+    duration: '2015'
+    language: 'Markdown'
+    github: 'https://github.com/500'
+    description: |
+      Hello, world!
+  - name: 'Ping!'
+    duraiton: '2014'
+    language: 'HTML'
+    website: 'http://example.com'
+    github: 'https://github.com/404'
+    description: |
+      SYNACK
+award:
+  - name: 'Pie eating contest'
+    award: 'Gold'
+    duration: '2014'
+    summary: |
+      I can't believe it's an example!
+  - name: 'Pi memorization contest'
+    award: 'Silver'
+    duration: '2015'
+---
