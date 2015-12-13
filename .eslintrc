@@ -40,7 +40,6 @@
       2,
       "never"
     ],
-    "no-console": 2,
     "curly": [
       2,
       "multi-line"
@@ -53,7 +52,6 @@
   "env": {
     "es6": true,
     "node": true,
-    "browser": true,
     "mocha": true
   },
   "extends": "eslint:recommended",
@@ -64,12 +62,5 @@
   },
   "plugins": [
     "react"
-  ],
-  "globals": {
-    "__SERVER__": true,
-    "__CLIENT__": true,
-    "__DEVELOPMENT__": true,
-    "__DEVTOOLS__": true,
-    "__WEBPACK_ISOMORPHIC_TOOLS__": true
-  }
+  ]
 }

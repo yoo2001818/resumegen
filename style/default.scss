@@ -1,0 +1,30 @@
+body {
+  padding: 0;
+  font-family: Noto Sans CJK KR, Helvetica, Arial, sans-serif;
+  // Limit page to A4 size
+  max-width: 42em;
+  margin: 0 auto;
+}
+
+.vcard {
+  margin: 1em;
+  padding: 1em 0.5em;
+  border-bottom: 1px solid #ccc;
+  & > .name {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.alias-container {
+  & > .name {
+    vertical-align: middle;
+  }
+  & > .alias {
+    font-size: 0.7em;
+    font-weight: normal;
+    margin-left: 0.3em;
+    color: #666;
+    vertical-align: text-bottom;
+  }
+}
