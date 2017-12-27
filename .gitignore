@@ -30,3 +30,6 @@ style/default.css
 resume.example.html
 resume.yml
 resume.html
+
+dist/
+public/
