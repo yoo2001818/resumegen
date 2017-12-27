@@ -2,43 +2,23 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import { renderToStaticMarkup } from 'react-dom/server';
-import { Provider } from 'react-redux';
-import { match, RouterContext } from 'react-router';
 import serialize from 'serialize-javascript';
 
-import prefetch from '../client/util/prefetch';
-import routes from '../client/routes';
-import createStore from '../client/store';
-import metadataMiddleware from '../client/middleware/metadata';
-import metadataServer from '../client/util/metadataServer';
+import App from '../client/component/App';
 
-export default function renderReact(link, files, publicPath,
+export default function renderReact(link, metadata, files, publicPath,
   assetsByChunkName, footer
 ) {
   return new Promise((resolve, reject) => {
-    let store = createStore(undefined, [
-      metadataMiddleware(metadataServer(files))
-    ]);
-    match({ routes, location: link }, (error, redirect, renderProps) => {
-      if (error) {
-        reject(error);
-      } else if (redirect) {
-        // TODO Uh... what?
-        reject(new Error('Redirection is not supported yet'));
-      } else if (renderProps) {
-        prefetch(store, renderProps)
-        .then(() => {
-          let tree = (
-            <Provider store={store}>
-              <RouterContext {...renderProps} />
-            </Provider>
-          );
-          let result = renderToStaticMarkup(tree);
-          let head = Helmet.rewind();
-          // OK, then wrap the data into HTML
-          let assets = assetsByChunkName.main;
-          if (!Array.isArray(assets)) assets = [assets];
-          let html = `<!doctype html>
+    let tree = (
+      <App />
+    );
+    let result = renderToStaticMarkup(tree);
+    let head = Helmet.rewind();
+    // OK, then wrap the data into HTML
+    let assets = assetsByChunkName.main;
+    if (!Array.isArray(assets)) assets = [assets];
+    let html = `<!doctype html>
 <html>
   <head>
     ${head.title.toString()}
@@ -56,7 +36,7 @@ export default function renderReact(link, files, publicPath,
       ${result}
     </div>
     <script>
-      window.__INITIAL_STATE__ = ${serialize(store.getState())}
+      window.__INITIAL_STATE__ = ${serialize(metadata)}
     </script>
     ${
       assets
@@ -67,9 +47,6 @@ export default function renderReact(link, files, publicPath,
     ${footer}
   </body>
 </html>`;
-          resolve(html);
-        });
-      }
-    });
+    resolve(html);
   });
 }

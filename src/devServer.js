@@ -1,16 +1,13 @@
 import express from 'express';
 import serveStatic from 'serve-static';
 
-import config from '../blog.config';
+import config from '../config';
 import devServer from './metagen/devServer';
 
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpack from 'webpack';
 import webpackConfig from '../webpack.config';
-
-import renderAtom from './renderer/atom';
-import renderRSS from './renderer/rss';
 
 let webpackCompiler = webpack(webpackConfig);
 
@@ -19,20 +16,6 @@ let metadata = devServer(config.site, config.source);
 app.use('/metadata', metadata,
   (req, res) => res.sendStatus(404));
 app.use('/media', serveStatic(config.media));
-
-app.get('/atom.xml', (req, res) => {
-  res.type('xml').send(renderAtom(metadata.getMetadata()));
-});
-app.get('/atom-:language.xml', (req, res) => {
-  res.type('xml').send(renderAtom(metadata.getMetadata(), req.params.language));
-});
-
-app.get('/rss.xml', (req, res) => {
-  res.type('xml').send(renderRSS(metadata.getMetadata()));
-});
-app.get('/rss-:language.xml', (req, res) => {
-  res.type('xml').send(renderRSS(metadata.getMetadata(), req.params.language));
-});
 
 app.use(webpackDevMiddleware(webpackCompiler, {
   publicPath: webpackConfig.output.publicPath,

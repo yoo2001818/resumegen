@@ -1,6 +1,6 @@
 import generate from './generate';
-import separate from './separate';
-import watch from 'watch';
+import fs from 'fs';
+// import watch from 'watch';
 
 export default function server(site, src) {
   let metadata = {};
@@ -8,9 +8,9 @@ export default function server(site, src) {
   async function regenerate() {
     console.log('Rebuilding...');
     metadata = await generate(site, src);
-    data = separate(metadata);
+    data = { main: metadata };
   }
-  watch.watchTree(src, regenerate);
+  fs.watch(src, regenerate);
 
   // Serve on-memory
   let output = (req, res, next) => {

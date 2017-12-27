@@ -7,8 +7,6 @@ import webpack from 'webpack';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import { ncp } from 'ncp';
 import renderLink from './renderer/link';
-import renderAtom from './renderer/atom';
-import renderRSS from './renderer/rss';
 
 import webpackConfig from '../webpack.config';
 import webpackIsomorphicToolsConfig from '../webpack-isomorphic-tools.config';
@@ -78,7 +76,8 @@ export default async function generate(config, noWebpack) {
   let links = renderLink(metadata);
   for (let link of links) {
     // This is only renderer that runs asynchronusly
-    let result = await renderReact(link, files, webpackConfig.output.publicPath,
+    let result = await renderReact(link, metadata, files,
+      webpackConfig.output.publicPath,
       assetsByChunkName, config.footer);
     // Save each file to the result
     let dir = path.resolve(config.output, link.slice(1));
@@ -86,20 +85,6 @@ export default async function generate(config, noWebpack) {
     await mkdirpPromise(dir);
     // Then save the file.
     await fs.writeFile(path.resolve(dir, 'index.html'), result);
-  }
-  // Render Atom / RSS
-  console.log('Rendering Atom / RSS feed');
-  let languages = [metadata.site.language].concat(
-    Object.keys(metadata.site.languages));
-  await fs.writeFile(path.resolve(config.output, 'atom.xml'),
-    renderAtom(metadata));
-  await fs.writeFile(path.resolve(config.output, 'rss.xml'),
-    renderRSS(metadata));
-  for (let language of languages) {
-    await fs.writeFile(path.resolve(config.output, `atom-${language}.xml`),
-      renderAtom(metadata, language));
-    await fs.writeFile(path.resolve(config.output, `rss-${language}.xml`),
-      renderRSS(metadata, language));
   }
   console.log('All done!');
 }

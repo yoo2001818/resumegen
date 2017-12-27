@@ -33,3 +33,8 @@ resume.html
 
 dist/
 public/
+lib/
+
+webpack-assets-by-chunkname.json
+webpack-assets.json
+
