@@ -15,7 +15,6 @@ module.exports = {
     sourceMapFilename: '[name].map',
   },
   plugins: [
-    new webpack.NoErrorsPlugin(),
     new WebpackIsomorphicToolsPlugin(
       require('./webpack-isomorphic-tools.config')),
     new webpack.NoEmitOnErrorsPlugin(),

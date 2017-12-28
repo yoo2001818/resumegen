@@ -11,6 +11,7 @@ export default function server(site, src) {
     data = { main: metadata };
   }
   fs.watch(src, regenerate);
+  regenerate();
 
   // Serve on-memory
   let output = (req, res, next) => {
