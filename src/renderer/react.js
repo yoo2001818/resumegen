@@ -4,14 +4,14 @@ import Helmet from 'react-helmet';
 import { renderToStaticMarkup } from 'react-dom/server';
 import serialize from 'serialize-javascript';
 
-import App from '../client/component/App';
+import App from '../client/component/app';
 
 export default function renderReact(link, metadata, files, publicPath,
   assetsByChunkName, footer
 ) {
   return new Promise((resolve, reject) => {
     let tree = (
-      <App />
+      <App state={metadata} />
     );
     let result = renderToStaticMarkup(tree);
     let head = Helmet.rewind();

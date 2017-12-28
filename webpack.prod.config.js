@@ -10,7 +10,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'public', 'assets'),
-    publicPath: '/assets/',
+    publicPath: './assets/',
     filename: 'bundle.js',
     sourceMapFilename: '[name].map',
   },

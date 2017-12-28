@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 
 import Page from './page';
 
@@ -19,6 +20,10 @@ export default function App({ state }) {
   }
   return (
     <div className='app'>
+      <Helmet>
+        <meta charset='utf-8' />
+        <title>유덕남</title>
+      </Helmet>
       <Page state={state} />
     </div>
   );
