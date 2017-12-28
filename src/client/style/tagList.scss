@@ -1,0 +1,16 @@
+@import './color.scss';
+
+.tag-list-component {
+  font-size: 0.8em;
+  margin: -0.1em -0.2em;
+  padding: 0;
+  list-style-type: none;
+  > .tag {
+    display: inline-block;
+    margin: 0.1em 0.2em;
+    padding: 0.2em 0.4em;
+    border-radius: 2px;
+    background-color: $blue-700;
+    color: $blue-100;
+  }
+}
