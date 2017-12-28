@@ -1,0 +1,19 @@
+@import './color.scss';
+
+.section-component {
+  > .header {
+    font-size: 1.4em;
+    margin: 0 0 0.5em;
+    padding: 0.3em 1em;
+    border-bottom: 2px solid $section-border-color;
+    color: $section-title-color;
+    > .subtitle {
+      color: $section-subtitle-color;
+      margin-left: 0.5em;
+      font-size: 0.75em;
+    }
+  }
+  > .content {
+    padding: 0.5em 2em;
+  }
+}
