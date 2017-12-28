@@ -11,6 +11,13 @@ import '../style/history.scss';
 export function HistoryEntry({ item }) {
   return (
     <div className='history-entry-component'>
+      { item.image && (
+        <div className='image'>
+          <a href={item.image}>
+            <img src={item.image} />
+          </a>
+        </div>
+      ) }
       <h3 className='header'>
         { item.url == null && item.repository == null ? (
           <span className='title'>{ item.name }</span>

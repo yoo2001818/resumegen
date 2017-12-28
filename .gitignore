@@ -38,3 +38,4 @@ lib/
 webpack-assets-by-chunkname.json
 webpack-assets.json
 
+media/

@@ -9,6 +9,20 @@
 }
 
 .history-entry-component {
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+  > .image {
+    float: right;
+    padding-left: 0.5em;
+    img {
+      max-width: 10em;
+      max-height: 10em;
+      border: none;
+    }
+  }
   > .header {
     margin: 0;
     font-weight: normal;
