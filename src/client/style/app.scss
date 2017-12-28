@@ -1,0 +1,46 @@
+@import './color.scss';
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "나눔바른고딕", "NanumBarunGothic", "나눔고딕", "NanumGothic",
+    "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "돋움",
+    "Dotum", Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.2;
+}
+
+button, input, textarea {
+  font-family: "나눔바른고딕", "NanumBarunGothic", "나눔고딕", "NanumGothic",
+    "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "돋움",
+    "Dotum", Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  color: inherit;
+  line-height: 1.2;
+}
+
+html {
+  background-color: $bg-color;
+  color: $fg-color;
+  // 10pt on mobile
+  font-size: 10pt;
+  @media screen and (min-width: 400pt) {
+    font-size: 12pt;
+  }
+  @media print {
+    background: none;
+  }
+}
+
+a {
+  color: $blue-800;
+  &:hover {
+    color: $blue-700;
+  }
+}
+
+.app {
+  padding: 2em 0.5em 0.5em;
+}

@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class App extends Component {
-  render() {
-    const { state } = this.props;
+import Page from './page';
+
+import '../style/app.scss';
+
+export default function App({ state }) {
+  // Shouldn't take a while to load.
+  if (state == null) {
     return (
-      <div id='container'>
-        <pre>
-          { JSON.stringify(state, null, 2) }
-        </pre>
-      </div>
+      <p>Loading...</p>
     );
   }
+  if (state.error) {
+    return (
+      <p>An error occurred while loading the data.</p>
+    );
+  }
+  return (
+    <div className='app'>
+      <Page state={state} />
+    </div>
+  );
 }
 
 App.propTypes = {

@@ -1,0 +1,17 @@
+@import './color.scss';
+
+.page-component {
+  // the page component should be printable on A4 paper.
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 1em;
+  box-sizing: border-box;
+  border: 1px solid $page-border-color;
+  border-radius: 3px;
+  background-color: $page-bg-color;
+
+  @media print {
+    border: none;
+    background: none;
+  }
+}

@@ -1,0 +1,43 @@
+@import './color.scss';
+
+.header-component {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 4em;
+  padding: 0.5em 0.5em;
+  font-size: 1.25em;
+  background-color: $header-bg-color;
+  color: $header-color;
+  > .title {
+    min-width: 0;
+    > .name {
+      display: inline;
+      margin: 0 0.2em;
+      padding: 0;
+      color: $header-title-color;
+      font-size: 2em;
+      font-weight: normal;
+    }
+    > .sub-name {
+      color: $header-subtitle-color;
+      font-size: 1.25em;
+    }
+  }
+  > .contact-component {
+    font-size: 0.85em;
+  }
+  @media print {
+    border-bottom: 0.2em solid $header-print-border-color;
+    background: none;
+    color: $header-print-color;
+    > .title {
+      > .name {
+        color: $header-print-title-color;
+      }
+      > .sub-name {
+        color: $header-print-subtitle-color;
+      }
+    }
+  }
+}
