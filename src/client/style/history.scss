@@ -3,6 +3,9 @@
 .history-component {
   list-style-type: disc;
   margin: 0;
+  &.projects > li {
+    margin-bottom: 0.5em;
+  }
 }
 
 .history-entry-component {
@@ -22,18 +25,49 @@
       margin-left: 0.2em;
       color: $blue-800;
     }
+    > .tag-list-component {
+      margin-left: 0.2em;
+      display: inline;
+    }
   }
-  > .tasks {
-    > .task {
-      > .name {
-        display: inline;
+  > .content {
+    padding-left: 1em;
+    > .description {
+      color: $grey-700;
+      font-size: 0.9em;
+      line-height: 1.6;
+      > p {
         margin: 0;
-        line-height: 1.8em;
       }
-      > .tag-list-component {
-        display: inline;
-        margin: -0.1em 0.5em;
+    }
+    > .tasks {
+      padding-left: 1em;
+      > .task {
+        > .name {
+          display: inline;
+          margin: 0;
+          line-height: 1.8em;
+          * {
+            display: inline;
+          }
+        }
+        > .tag-list-component {
+          display: inline;
+          margin: -0.1em 0.5em;
+        }
       }
+    }
+    > .category {
+      font-weight: bold;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+    > .stack {
+      padding: 0.2em 0;
+    }
+    > .link-list-component {
+      font-size: 0.9em;
+      margin: 0.2em -0.2em;
     }
   }
 }

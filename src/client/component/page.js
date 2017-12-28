@@ -23,7 +23,7 @@ export default function Page({ state }) {
         <History list={state.awards} />
       </Section>
       <Section title='프로젝트' subtitle='Projects'>
-        Hello
+        <History list={state.projects} className='projects' />
       </Section>
     </div>
   );
