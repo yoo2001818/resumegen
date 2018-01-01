@@ -8,7 +8,7 @@ import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import { ncp } from 'ncp';
 import renderLink from './renderer/link';
 
-import webpackConfig from '../webpack.config';
+import webpackConfig from '../webpack.prod.config';
 import webpackIsomorphicToolsConfig from '../webpack-isomorphic-tools.config';
 
 function mkdirpPromise(dir) {

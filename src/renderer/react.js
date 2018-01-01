@@ -40,6 +40,7 @@ export default function renderReact(link, metadata, files, publicPath,
     </script>
     ${
       assets
+      .filter(() => false) // Don't use JS - it is completely static.
       .filter(path => path.endsWith('.js'))
       .map(path => `<script src="${publicPath + path}"></script>`)
       .join('')
